@@ -11,7 +11,7 @@ const Dashboard = () => {
       </div>
       <div className="w-2/3 mx-auto mt-2 ">
         <h3>Reviews</h3>
-        <ReviewsList />
+        {/* <ReviewsList /> */}
       </div>
     </>
   );
