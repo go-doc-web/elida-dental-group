@@ -2,10 +2,9 @@ import React from 'react';
 import Rating from './ui/Rating/Rating';
 
 import formattedDate from '@/lib/formattedDate';
-
 const getReviews = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/reviews');
+    const res = await fetch(`${process.env.API_HOST}/reviews`);
     //   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
