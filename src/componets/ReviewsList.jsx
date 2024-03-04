@@ -4,13 +4,17 @@ import Rating from './ui/Rating/Rating';
 import formattedDate from '@/lib/formattedDate';
 
 const getReviews = async () => {
-  const res = await fetch('http://localhost:3000/api/reviews');
-  //   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
+  try {
+    const res = await fetch('http://localhost:3000/api/reviews');
+    //   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data');
+    }
+    return res.json();
+  } catch (error) {
+    console.log(error);
   }
-  return res.json();
 };
 const ReviewsList = async () => {
   const data = await getReviews();
